@@ -1,0 +1,31 @@
+<h2>Lista de hamburguesas</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Imagen</th>
+            <th>Ingredientes</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Compra</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let burger of burgers" [ngClass]="{'offer':burger.offer}">
+            <td>{{burger.name}}</td>
+            <td><img [src]="burger.image" [alt]="burger.name"></td>
+            <td>{{burger.ingredients}}</td>
+            <td>{{burger.price | currency}}</td>
+            <td><span class="badge text-bg-danger" *ngIf="burger.stock==0">SIN STOCK</span><span *ngIf="burger.stock>0">{{burger.stock}}</span></td>
+            <td>
+                <app-input-integer [(quantify)]="burger.quantify" [max]="burger.stock" *ngIf="burger.stock>0" (maxReached)="maxReached($event)"></app-input-integer>
+            </td>
+            <td *ngIf="burger.stock>0">
+                <button (click)="addToCart(burger)">Agregar al carrito</button>
+            </td>
+            <td *ngIf="burger.stock==0">
+                No es posible agregar al carrito ya que no se cuenta con stock.
+            </td>
+        </tr>
+    </tbody>
+</table>

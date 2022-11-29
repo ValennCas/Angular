@@ -1,0 +1,11 @@
+.contenedor{
+    display: flex;
+    justify-content: center;
+}
+.contenedor div{
+    width: 100%;
+    text-align: center;
+}
+.list_burger{
+    height: 100%;
+}

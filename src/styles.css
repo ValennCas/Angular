@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    height: 100vh;
+}
+button{
+    background-color: rgb(109, 109, 233);
+    border-radius: 20%;
+}
+h2{
+    text-decoration-line: underline;
+    text-decoration-style: dashed;
+    text-decoration-color: black;
+    color: rgb(43, 177, 148);
+}
